@@ -1,6 +1,5 @@
 from itertools import permutations
 from faker import Faker
-import time
 import csv
 
 # Name of the fields
