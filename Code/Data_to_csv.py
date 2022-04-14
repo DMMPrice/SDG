@@ -1,6 +1,7 @@
 from itertools import permutations
 from faker import Faker
 import csv
+import time
 
 # Name of the fields
 fields = ['Name', 'Date of Birth', 'Address', 'Email', 'Phone Number']
