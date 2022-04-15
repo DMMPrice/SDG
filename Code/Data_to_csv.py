@@ -7,7 +7,7 @@ import time
 fields = ['Name', 'Date of Birth', 'Address', 'Email', 'Phone Number']
 
 # Name of the file
-file = "Data.csv"
+file = "Data1.csv"
 
 # Generating dictionary
 fake = Faker()
@@ -25,7 +25,7 @@ with open(file, 'w+') as f:
 # Inserting data in the csv file
     start_time = time.time()
     c = 1
-    for i in range(0, 3600000):
+    for i in range(0, 200000):
         data = fake_data = []
 
         # Name
