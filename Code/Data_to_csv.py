@@ -7,12 +7,11 @@ import time
 fields = ['Name', 'Date of Birth', 'Address', 'Email', 'Phone Number']
 
 # Name of the file
-file = "Data1.csv"
+file = "Outputs/Data12.csv"
 
 # Generating dictionary
 fake = Faker()
 phone_number = list(permutations([1, 2, 3, 4, 5, 6, 7, 8, 9, 0], 10))
-print(len(phone_number))
 # results = []
 # for c in (product([1, 2, 3, 4, 5, 6, 7, 8, 9, 0], repeat=6)):
 #     results.append(c)
@@ -22,10 +21,10 @@ with open(file, 'w+') as f:
     write = csv.writer(f)
     write.writerow(fields)
 
-# Inserting data in the csv file
+    # Inserting data in the csv file
     start_time = time.time()
     c = 1
-    for i in range(0, 200000):
+    for i in range(0, 3628001):
         data = fake_data = []
 
         # Name
