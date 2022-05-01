@@ -51,8 +51,8 @@ for j in range(from_, pic_):
     print(j_start)
     print(j_end)
     count = 1
-    initial_time = time.time()
     for i in range(j_start, j_end):
+        initial_time = time.time()
         # Giving request to the url
         r = requests.get(url)
         soup = BeautifulSoup(r.text, "html.parser")
@@ -69,5 +69,5 @@ for j in range(from_, pic_):
         print(count, ' file sent')
         r.close()
         count += 1
-    print("1000 files sent. Time Taken= ",time.time()-initial_time)
+        print("1000 files sent. Time Taken= ",time.time()-initial_time)
     os.chdir(cur_dir)
