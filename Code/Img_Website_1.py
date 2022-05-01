@@ -35,39 +35,27 @@ url = "https://this-person-does-not-exist.com/en"
 
 # Creating the starting and ending variable
 print("Please keep the numbers in the order of thousands(1000s) ")
-start_from = int(input("Enter the starting image number: "))  # Think it is 2000
-end_pic = int(input("Enter the ending number: "))  # Think it is 4000
-from_ = start_from // 1000
-pic_ = end_pic // 1000
-for j in range(from_, pic_):
-    cur_dir = os.getcwd()
-    os.mkdir(os.path.join(os.getcwd(), 'Profile_pic_' + str(j)))
-    os.chdir(os.path.join(os.getcwd(), 'Profile_pic_' + str(j)))
+cur_dir = os.getcwd()
+os.mkdir(os.path.join(os.getcwd(), 'Profile_pic_' + '1'))
+os.chdir(os.path.join(os.getcwd(), 'Profile_pic_' + '1'))
+# Whole part below this will be run in a loop
+count = 1
+initial_time = time.time()
+for i in range(1, 1001):
+    # Giving request to the url
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text, "html.parser")
 
-    # Whole part below this will be run in a loop
-
-    j_start = j * 1000 + 1
-    j_end = j_start + 1000
-    print(j_start)
-    print(j_end)
-    count = 1
-    initial_time = time.time()
-    for i in range(j_start, j_end):
-        # Giving request to the url
-        r = requests.get(url)
-        soup = BeautifulSoup(r.text, "html.parser")
-
-        # Searching the image with the id name
-        images = soup.find(id='avatar')
-        u = "https://this-person-does-not-exist.com"
-        s = str(images['src'])
-        name = u + s
-        # Downloading and saving the file
-        with open(str(i) + '.jpg', 'wb') as f:
-            im = requests.get(name)
-            f.write(im.content)
-        print(count, ' file sent')
-        r.close()
-        count += 1
-    print("1000 files sent. Time Taken= ",time.time()-initial_time)
-    os.chdir(cur_dir)
+    # Searching the image with the id name
+    images = soup.find(id='avatar')
+    u = "https://this-person-does-not-exist.com"
+    s = str(images['src'])
+    name = u + s
+    # Downloading and saving the file
+    with open(str(i) + '.jpg', 'wb') as f:
+        im = requests.get(name)
+        f.write(im.content)
+    print(count, ' file sent')
+    r.close()
+    count += 1
+print("1000 files sent. Time Taken= ", time.time() - initial_time)
