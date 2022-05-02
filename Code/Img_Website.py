@@ -69,5 +69,5 @@ for j in range(from_, pic_):
         print(count, ' file sent')
         r.close()
         count += 1
-        print("1000 files sent. Time Taken= ",time.time()-initial_time)
+        print("1000 files sent. Time Taken= ", time.time() - initial_time)
     os.chdir(cur_dir)
